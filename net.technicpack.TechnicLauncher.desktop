@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Technic Launcher
+Icon=net.technicpack.TechnicLauncher
+Exec=technicpack
+Categories=Game;
+StartupWMClass=net-minecraft-bootstrap-Bootstrap
+PrefersNonDefaultGPU=true

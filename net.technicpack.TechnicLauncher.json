@@ -1,0 +1,100 @@
+{
+  "app-id": "net.technicpack.TechnicLauncher",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "21.08",
+  "sdk": "org.freedesktop.Sdk",
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk11"],
+  "command": "techniclauncher",
+  "tag": ["proprietary"],
+  "modules": [
+    "shared-modules/libsecret/libsecret.json",
+    {
+      "name": "flite",
+      "config-opts": ["--enable-shared"],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/festvox/flite.git",
+          "tag": "v2.2",
+          "commit": "e9e2e37c329dbe98bfeb27a1828ef9a71fa84f88",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          }
+        }
+      ]
+    },
+    {
+      "name": "xrandr",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://www.x.org/archive/individual/app/xrandr-1.5.1.tar.gz",
+          "sha256": "7b99edb7970a1365eaf5bcaf552144e4dfc3ccf510c4abc08569849929fb366e"
+        }
+      ]
+    },
+    {
+      "name": "openjdk",
+      "buildsystem": "simple",
+      "build-commands": ["/usr/lib/sdk/openjdk11/install.sh"]
+    },
+    {
+      "name": "techniclauncher",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -D -m 755 TechnicLauncher.jar /app/bin/TechnicLanucher.jar",
+        "install -D -m 755 techniclauncher.sh /app/bin/techniclauncher",
+        "install -D -m 664 net.technicpack.TechnicLauncher.desktop /app/share/applications/net.technicpack.TechnicLauncher.desktop",
+        "install -D -m 644 net.technicpack.TechnicLauncher.appdata.xml /app/share/appdata/net.technicpack.TechnicLauncher.appdata.xml",
+        "install -D -m 644 net.technicpack.TechnicLauncher.png /app/share/icons/hicolor/256x256/apps/net.technicpack.TechnicLauncher.png",
+        "install -D -m 644 net.technicpack.TechnicLauncher-64.png /app/share/icons/hicolor/64x64/apps/net.technicpack.TechnicLauncher.png",
+        "install -D -m 644 net.technicpack.TechnicLauncher-128.png /app/share/icons/hicolor/128x128/apps/net.technicpack.TechnicLauncher.png"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "sha256": "b9259ddc25da3defd23992393eeb0bc9bd5325f3c68df5a96c52e07699994f12",
+          "url": "https://launcher.technicpack.net/launcher4/725/TechnicLauncher.jar"
+        },
+        {
+          "type": "file",
+          "path": "techniclauncher.sh"
+        },
+        {
+          "type": "file",
+          "path": "net.technicpack.TechnicLauncher.appdata.xml"
+        },
+        {
+          "type": "file",
+          "path": "net.technicpack.TechnicLauncher.desktop"
+        },
+        {
+          "type": "file",
+          "path": "net.technicpack.TechnicLauncher.png"
+        },
+        {
+          "type": "file",
+          "path": "net.technicpack.TechnicLauncher-64.png"
+        },
+        {
+          "type": "file",
+          "path": "net.technicpack.TechnicLauncher-128.png"
+        }
+      ]
+    }
+  ],
+  "finish-args": [
+    "--persist=.minecraft",
+    "--socket=x11",
+    "--share=ipc",
+    "--device=dri",
+    "--socket=pulseaudio",
+    "--share=network",
+    "--env=XCURSOR_PATH=/run/host/share/icons:/run/host/user-share/icons",
+    "--env=JAVA_HOME=/app/jre",
+    "--env=PATH=/app/jre/bin:/usr/bin",
+    "--env=PATH=/usr/bin:/app/bin:/app/jre/bin",
+    "--env=JAVA_HOME=/app/jre"
+  ]
+}

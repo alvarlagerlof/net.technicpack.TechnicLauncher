@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+    <id>net.technicpack.TechnicLauncher</id>
+    <name>Technic Launcher</name>
+    <summary>SUMMARY</summary>
+    <description>
+        <p>Install any of our flagship modpacks with one simple click or choose from thousands of community-made modpacks available on the Technic Platform. It doesn't get easier than this.</p>
+        <p>NOTE: This wrapper is not verified by, affiliated with, or supported by Syndicate LLC.</p>
+    </description>
+    <metadata_license>CC0-1.0</metadata_license>
+    <url type="homepage">https://www.technicpack.net/</url>
+    <screenshots>
+        <screenshot type="default">https://raw.githubusercontent.com/flathub/com.mojang.Minecraft/master/screenshots/minecraft1.png</screenshot>
+        <screenshot>https://raw.githubusercontent.com/flathub/com.mojang.Minecraft/master/screenshots/minecraft2.png</screenshot>
+    </screenshots>
+    <launchable type="desktop-id">net.technicpack.TechnicLauncher.desktop</launchable>
+    <project_license>LicenseRef-proprietary</project_license>
+    <developer_name>Syndicate LLC</developer_name>
+    <releases>
+        <release version="0" date="2000-01-01" />
+    </releases>
+    <content_rating type="oars-1.0">
+        <content_attribute id="violence-cartoon">moderate</content_attribute>
+    </content_rating>
+</component>
